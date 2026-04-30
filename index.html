@@ -460,31 +460,63 @@
       line-height: 1.45;
     }
 
-    .market-bars {
+    .growth-stack {
       display: grid;
-      gap: 10px;
+      gap: 12px;
     }
 
-    .market-row {
+    .growth-card {
       display: grid;
-      grid-template-columns: 74px 1fr 54px;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      gap: 8px;
-      color: #334251;
-      font-size: 12.5px;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      background: #fbfcfd;
+    }
+
+    .growth-number {
+      display: block;
+      color: #142335;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .growth-label {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 11.5px;
       font-weight: 700;
+      text-transform: uppercase;
     }
 
-    .market-track {
-      height: 18px;
-      overflow: hidden;
-      border: 1px solid #cfd9e4;
-      background: #eef3f8;
+    .growth-arrow {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #e9f3ff;
+      color: var(--blue);
+      font-size: 20px;
+      font-weight: 800;
     }
 
-    .market-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--blue), var(--green));
+    .growth-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .growth-pill {
+      padding: 5px 8px;
+      background: #eef8f3;
+      color: #176448;
+      font-size: 11.5px;
+      font-weight: 800;
     }
 
     .vistaprint-logo {
@@ -502,7 +534,7 @@
 
     .shipping-row {
       display: grid;
-      grid-template-columns: 74px 1fr;
+      grid-template-columns: 72px 1fr 92px;
       align-items: center;
       gap: 8px;
       padding: 9px 10px;
@@ -518,6 +550,13 @@
       color: var(--muted);
       font-size: 12.5px;
       line-height: 1.3;
+    }
+
+    .shipping-row .shipping-price {
+      color: #142335;
+      font-size: 12.5px;
+      font-weight: 800;
+      text-align: right;
     }
 
     .shipping-cost-note {
@@ -850,26 +889,40 @@
           <div class="insight-card">
             <h3>Personalized gifts market growth</h3>
             <p>MarketResearch.com / Global Industry Analysts projects the global personalized gifts market growing from $37.8B in 2024 to $52.8B by 2030. Arizton projects the U.S. market growing from $9.69B to $14.56B over the same period.</p>
-            <div class="market-bars" aria-label="Personalized gifts market growth chart">
-              <div class="market-row">
-                <span>Global 2024</span>
-                <div class="market-track"><div class="market-fill" style="width: 72%;"></div></div>
-                <span>$37.8B</span>
+            <div class="growth-stack" aria-label="Personalized gifts market growth snapshot">
+              <div>
+                <div class="growth-card">
+                  <div>
+                    <span class="growth-number">$37.8B</span>
+                    <span class="growth-label">Global 2024</span>
+                  </div>
+                  <div class="growth-arrow">-&gt;</div>
+                  <div>
+                    <span class="growth-number">$52.8B</span>
+                    <span class="growth-label">Global 2030</span>
+                  </div>
+                </div>
+                <div class="growth-meta">
+                  <span class="growth-pill">+$15.0B projected growth</span>
+                  <span class="growth-pill">5.7% CAGR</span>
+                </div>
               </div>
-              <div class="market-row">
-                <span>Global 2030</span>
-                <div class="market-track"><div class="market-fill" style="width: 100%;"></div></div>
-                <span>$52.8B</span>
-              </div>
-              <div class="market-row">
-                <span>U.S. 2024</span>
-                <div class="market-track"><div class="market-fill" style="width: 67%;"></div></div>
-                <span>$9.69B</span>
-              </div>
-              <div class="market-row">
-                <span>U.S. 2030</span>
-                <div class="market-track"><div class="market-fill" style="width: 100%;"></div></div>
-                <span>$14.56B</span>
+              <div>
+                <div class="growth-card">
+                  <div>
+                    <span class="growth-number">$9.69B</span>
+                    <span class="growth-label">U.S. 2024</span>
+                  </div>
+                  <div class="growth-arrow">-&gt;</div>
+                  <div>
+                    <span class="growth-number">$14.56B</span>
+                    <span class="growth-label">U.S. 2030</span>
+                  </div>
+                </div>
+                <div class="growth-meta">
+                  <span class="growth-pill">+$4.87B projected growth</span>
+                  <span class="growth-pill">7.03% CAGR</span>
+                </div>
               </div>
             </div>
           </div>
@@ -879,12 +932,12 @@
             <h3>Public shipping benchmark</h3>
             <p>VistaPrint says listed speeds include production and shipping, with availability varying by product and destination.</p>
             <div class="shipping-stack" aria-label="VistaPrint shipping speeds">
-              <div class="shipping-row"><strong>Economy</strong><span>as soon as 8 business days</span></div>
-              <div class="shipping-row"><strong>Standard</strong><span>as soon as 6 business days</span></div>
-              <div class="shipping-row"><strong>Express</strong><span>as soon as 3 business days; many business cards in 3-5 business days</span></div>
-              <div class="shipping-row"><strong>Rush</strong><span>2 business days where eligible</span></div>
+              <div class="shipping-row"><strong>Economy</strong><span>as soon as 8 business days</span><span class="shipping-price">$5.99-$11.99</span></div>
+              <div class="shipping-row"><strong>Standard</strong><span>as soon as 6 business days</span><span class="shipping-price">$7.99-$17.99</span></div>
+              <div class="shipping-row"><strong>Express</strong><span>as soon as 3 business days; many business cards in 3-5 business days</span><span class="shipping-price">$19.99-$34.99</span></div>
+              <div class="shipping-row"><strong>Rush</strong><span>2 business days where eligible</span><span class="shipping-price">$34.99+ est.</span></div>
             </div>
-            <div class="shipping-cost-note">Expedited pricing is variable: VistaPrint says costs depend on items, order size, and delivery location, with final pricing shown on product pages and at checkout.</div>
+            <div class="shipping-cost-note">Reported public ranges vary by order size. VistaPrint says official final pricing depends on items, order size, and delivery location and is shown on product pages and at checkout; Rush is especially checkout-dependent.</div>
           </div>
         </div>
 
@@ -894,7 +947,7 @@
 
         <p class="thesis-callout"><strong>This paradigm shift represents one of the largest possibilities for wealth creation in possibly our lifetimes.</strong></p>
 
-        <p class="source-note">Sources: <a href="https://www.marketresearch.com/Market-Glass-Inc-v1039/Personalized-Gifts-42599069/">MarketResearch.com / Global Industry Analysts personalized gifts report</a>; <a href="https://www.arizton.com/market-reports/united-states-personalized-gifts-market">Arizton U.S. personalized gifts market report</a>; <a href="https://www.vistaprint.com/shipping">VistaPrint shipping and delivery information</a>; <a href="https://www.vistaprint.com/business-cards/fast-delivery">VistaPrint fast-delivery business cards</a>; <a href="https://www.vistaprint.com/logomaker">VistaPrint AI Logomaker</a>; <a href="https://www.vistaprint.com/news/press-resources/logos">VistaPrint newsroom logo resources</a>; <a href="https://www.etsy.com/shop/HomesteadSignsDecor">HomesteadSignsDecor Etsy shop</a>; <a href="https://quickclipsfloral.com">QuickClips Floral</a>.</p>
+        <p class="source-note">Sources: <a href="https://www.marketresearch.com/Market-Glass-Inc-v1039/Personalized-Gifts-42599069/">MarketResearch.com / Global Industry Analysts personalized gifts report</a>; <a href="https://www.arizton.com/market-reports/united-states-personalized-gifts-market">Arizton U.S. personalized gifts market report</a>; <a href="https://www.vistaprint.com/shipping">VistaPrint shipping and delivery information</a>; <a href="https://www.vistaprint.com/business-cards/fast-delivery">VistaPrint fast-delivery business cards</a>; <a href="https://www.groupon.com/coupons/blog/vistaprint-free-shipping-guide">Groupon Coupons VistaPrint shipping cost guide</a>; <a href="https://www.vistaprint.com/logomaker">VistaPrint AI Logomaker</a>; <a href="https://www.vistaprint.com/news/press-resources/logos">VistaPrint newsroom logo resources</a>; <a href="https://www.etsy.com/shop/HomesteadSignsDecor">HomesteadSignsDecor Etsy shop</a>; <a href="https://quickclipsfloral.com">QuickClips Floral</a>.</p>
 
         <p>Thanks for following along. I will keep these updates short, but I wanted to start giving everyone a clearer picture of what we are building and where things are headed.</p>
 
