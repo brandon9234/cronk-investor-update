@@ -314,11 +314,92 @@
     }
 
     .partner-card span,
+    .production-caption,
     .source-note {
       display: block;
       color: var(--muted);
       font-size: 13px;
       line-height: 1.45;
+    }
+
+    .wholesaler-logo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 16px 0 16px;
+    }
+
+    .wholesaler-logo {
+      min-height: 92px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--ink);
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .wholesaler-logo img {
+      display: block;
+      width: 100%;
+      max-width: 118px;
+      height: 42px;
+      object-fit: contain;
+      margin-bottom: 8px;
+    }
+
+    .wholesaler-logo span {
+      color: #334251;
+      font-size: 11.5px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .account-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 14px;
+      margin: -2px 0 22px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      background: #fbfcfd;
+      color: #334251;
+      font-size: 13.5px;
+    }
+
+    .account-list li {
+      margin-left: 16px;
+    }
+
+    .production-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 18px 0 22px;
+    }
+
+    .production-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .production-card img {
+      display: block;
+      width: 100%;
+      height: 245px;
+      object-fit: cover;
+      object-position: center;
+      background: #eef2f6;
+    }
+
+    .production-caption {
+      padding: 12px 14px;
+      border-top: 1px solid var(--line);
     }
 
     .capital-band {
@@ -411,6 +492,9 @@
       }
 
       .partner-grid,
+      .wholesaler-logo-grid,
+      .account-list,
+      .production-grid,
       .capital-band {
         grid-template-columns: 1fr;
       }
@@ -563,6 +647,73 @@
             <img src="assets/quickclips-logo.png" alt="QuickClips logo">
             <strong>QuickClips</strong>
             <span>Fulfillment partner with a long-term profit-sharing agreement.</span>
+          </div>
+        </div>
+
+        <h2 class="section-label">QuickClips wholesaler traction</h2>
+
+        <p>Some of the wholesaler and retail accounts QuickClips has been signing on include:</p>
+
+        <div class="wholesaler-logo-grid" aria-label="QuickClips wholesaler network logos">
+          <a class="wholesaler-logo" href="https://www.cincywholesaleflorist.com/" target="_blank" rel="noopener">
+            <img src="assets/wholesalers/cincinnati-wholesale.png" alt="Cincinnati Wholesale Florist logo">
+            <span>Cincinnati Wholesale</span>
+          </a>
+          <a class="wholesaler-logo" href="https://rjcarbone.com/" target="_blank" rel="noopener">
+            <img src="assets/wholesalers/rj-carbone.png" alt="R.J. Carbone Co. Floral Distributors logo">
+            <span>R.J. Carbone</span>
+          </a>
+          <a class="wholesaler-logo" href="https://www.washingtonfloral.com/" target="_blank" rel="noopener">
+            <img src="assets/wholesalers/washington-floral.png" alt="Washington Floral Service logo">
+            <span>Washington Floral</span>
+          </a>
+          <a class="wholesaler-logo" href="https://dvflora.com/" target="_blank" rel="noopener">
+            <img src="assets/wholesalers/dvflora.webp" alt="DV Flora logo">
+            <span>DV Flora</span>
+          </a>
+          <a class="wholesaler-logo" href="https://www.nawfi.com/" target="_blank" rel="noopener">
+            <img src="assets/wholesalers/north-american.webp" alt="North American Wholesale Florist logo">
+            <span>North American</span>
+          </a>
+          <a class="wholesaler-logo" href="https://bonnettwholesale.com/" target="_blank" rel="noopener">
+            <img src="assets/wholesalers/bonnett.png" alt="Bonnett Wholesale Florist logo">
+            <span>Bonnett</span>
+          </a>
+          <a class="wholesaler-logo" href="https://karthauser.net/" target="_blank" rel="noopener">
+            <img src="assets/wholesalers/karthauser.png" alt="Karthauser and Sons logo">
+            <span>Karthauser & Sons</span>
+          </a>
+          <a class="wholesaler-logo" href="https://www.albertsons.com/" target="_blank" rel="noopener">
+            <img src="assets/wholesalers/albertsons.webp" alt="Albertsons logo">
+            <span>Albertsons</span>
+          </a>
+        </div>
+
+        <ul class="account-list">
+          <li>Floral Design Wholesale</li>
+          <li>Mt Eden Floral Co</li>
+          <li>Cincinnati Wholesale Florist</li>
+          <li>R.J. Carbone Co. Floral Distributors</li>
+          <li>Shamrock Wholesale Florist Inc</li>
+          <li>Washington Floral Service</li>
+          <li>DVFG / DV Flora</li>
+          <li>North American Wholesale Florist</li>
+          <li>Bonnett</li>
+          <li>Karthauser & Sons, Inc.</li>
+          <li>T and R Wholesale Florist, Inc.</li>
+          <li>Albertsons</li>
+        </ul>
+
+        <h2 class="section-label">Mexico production ramp</h2>
+
+        <div class="production-grid">
+          <div class="production-card">
+            <img src="assets/mexico-inventory.jpg" alt="Landed inventory in Mexico">
+            <span class="production-caption">Landed inventory in Mexico from a few months ago, part of our effort to ramp production capacity with the Mexico factory.</span>
+          </div>
+          <div class="production-card">
+            <img src="assets/mexico-factory-handshake.jpg" alt="Brandon shaking hands with the head of the Mexico factory">
+            <span class="production-caption">Brandon meeting with the head of the Mexico factory about five months ago as we began setting up the production relationship.</span>
           </div>
         </div>
 
