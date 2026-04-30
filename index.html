@@ -285,6 +285,74 @@
       line-height: 1.45;
     }
 
+    .partner-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 18px 0 22px;
+    }
+
+    .partner-card {
+      border: 1px solid var(--line);
+      background: #ffffff;
+      padding: 14px;
+    }
+
+    .partner-card img {
+      display: block;
+      width: 100%;
+      height: 118px;
+      object-fit: contain;
+      margin-bottom: 10px;
+      background: #fbfcfd;
+    }
+
+    .partner-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .partner-card span,
+    .source-note {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .capital-band {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 20px 0 22px;
+    }
+
+    .capital-card {
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--gold);
+      background: #fffaf2;
+      padding: 16px;
+    }
+
+    .capital-card:nth-child(2) {
+      border-left-color: var(--green);
+      background: #f6fbf8;
+    }
+
+    .capital-card strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+      margin-bottom: 7px;
+    }
+
+    .capital-card span {
+      color: var(--muted);
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+
     .footer-note {
       margin-top: 26px;
       padding-top: 18px;
@@ -339,6 +407,11 @@
       }
 
       .demo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .partner-grid,
+      .capital-band {
         grid-template-columns: 1fr;
       }
     }
@@ -478,13 +551,39 @@
 
         <p>That listing workflow will also support AI-generated product thumbnails and videos. We have already seen on our own products that these assets can be made faster, cheaper, and at higher quality than traditional designer-made thumbnails.</p>
 
-        <p>Cronk is already being used by companies like Homestead Science and Decor and QuickClips to fulfill their own products. We also have a 13-year profit-sharing agreement with QuickClips for 33% of their profits. QuickClips has recently been signing deals with more than 43 wholesaler locations and 153 Albertsons stores, and their growth is currently gated mainly by how quickly our factory in Mexico can produce the product.</p>
+        <p>Cronk is already being used by companies like homesteadsignsanddecor and QuickClips to fulfill their own products. We also have a 13-year profit-sharing agreement with QuickClips for 33% of their profits. QuickClips has recently been signing deals with more than 43 wholesaler locations and 153 Albertsons stores, and their growth is currently gated mainly by how quickly our factory in Mexico can produce the product.</p>
+
+        <div class="partner-grid">
+          <div class="partner-card">
+            <img src="assets/homestead-signs-decor-logo.jpg" alt="Homestead Signs and Decor logo">
+            <strong>homesteadsignsanddecor</strong>
+            <span>Custom signs and decor fulfillment running through Cronk.</span>
+          </div>
+          <div class="partner-card">
+            <img src="assets/quickclips-logo.png" alt="QuickClips logo">
+            <strong>QuickClips</strong>
+            <span>Fulfillment partner with a long-term profit-sharing agreement.</span>
+          </div>
+        </div>
+
+        <div class="capital-band">
+          <div class="capital-card">
+            <strong>$225,000</strong>
+            <span>cash on hand from our most recent raise</span>
+          </div>
+          <div class="capital-card">
+            <strong>$70,000+</strong>
+            <span>in landed inventory expected to retail for over $500,000</span>
+          </div>
+        </div>
 
         <p>The goal is simple: combine personalized product creation, automated order processing, and faster fulfillment into one system that gives us a meaningful edge in every custom category, not only on price but also on speed.</p>
 
-        <p>These categories can seem small individually, but they are extremely large. We saw this at Mayberry, where the custom street sign industry alone on Etsy is multiple millions of dollars a year. The nameplates market is much larger, and the customization industry as a whole is billions and billions of dollars a year.</p>
+        <p>These categories can seem small individually, but they are extremely large. We saw this at Mayberry, where the custom street sign industry alone on Etsy is multiple millions of dollars a year. The nameplates market is much larger, and the customization industry as a whole is billions and billions of dollars a year. For context, MarketResearch.com / Global Industry Analysts estimates the global personalized gifts market at $37.8 billion in 2024, growing to $52.8 billion by 2030 at a 5.7% CAGR, while Arizton estimates the U.S. personalized gifts market at $9.69 billion in 2024, growing to $14.56 billion by 2030 at a 7.03% CAGR.</p>
 
         <p>We have yet to see a company with a similar software and soon-to-be manufacturing edge for speed and price. Our warehouse network gives us the physical footprint, and our software lets us leverage that network by assigning orders based on customer location, then generating those orders automatically to shorten processing times.</p>
+
+        <p class="source-note">Sources: <a href="https://www.marketresearch.com/Market-Glass-Inc-v1039/Personalized-Gifts-42599069/">MarketResearch.com / Global Industry Analysts personalized gifts report</a>; <a href="https://www.arizton.com/market-reports/united-states-personalized-gifts-market">Arizton U.S. personalized gifts market report</a>; <a href="https://www.etsy.com/shop/HomesteadSignsDecor">HomesteadSignsDecor Etsy shop</a>; <a href="https://quickclipsfloral.com">QuickClips Floral</a>.</p>
 
         <p>Thanks for following along. I will keep these updates short, but I wanted to start giving everyone a clearer picture of what we are building and where things are headed.</p>
 
