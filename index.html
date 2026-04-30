@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cronk Investor Update Preview</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f3f5f7;
+      --ink: #17212b;
+      --muted: #607080;
+      --line: #dbe1e7;
+      --blue: #1f6feb;
+      --green: #0f8b61;
+      --gold: #b7791f;
+      --panel: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+      letter-spacing: 0;
+    }
+
+    .preview-shell {
+      width: min(100%, 920px);
+      margin: 0 auto;
+      padding: 28px 16px 44px;
+    }
+
+    .email-frame {
+      width: min(100%, 720px);
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 44px rgba(21, 32, 43, 0.12);
+    }
+
+    .preheader {
+      padding: 14px 28px;
+      background: #17212b;
+      color: #d9e6f2;
+      font-size: 13px;
+    }
+
+    .masthead {
+      padding: 34px 34px 24px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .brand-logo {
+      display: block;
+      width: min(360px, 72%);
+      height: auto;
+    }
+
+    .issue {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 620px;
+      margin: 0 0 12px;
+      font-size: 30px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .dek {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .content {
+      padding: 28px 34px 36px;
+    }
+
+    p {
+      margin: 0 0 17px;
+      font-size: 15.5px;
+    }
+
+    .metric-band {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 22px 0 22px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--blue);
+      padding: 16px;
+      background: #f8fbff;
+    }
+
+    .metric:nth-child(2) {
+      border-left-color: var(--green);
+      background: #f6fbf8;
+    }
+
+    .metric-value {
+      display: block;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+
+    .section-label {
+      margin: 26px 0 12px;
+      color: #293846;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .warehouse-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .warehouse-card {
+      border: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .warehouse-card img {
+      display: block;
+      width: 100%;
+      height: 285px;
+      object-fit: cover;
+      object-position: center;
+      background: #eef2f6;
+    }
+
+    .warehouse-caption {
+      padding: 12px 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .warehouse-caption strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .warehouse-caption span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .callout {
+      margin: 22px 0;
+      padding: 18px;
+      border: 1px solid #cfe0f6;
+      background: #f6faff;
+    }
+
+    .product-list {
+      columns: 2;
+      padding-left: 19px;
+      margin: 0 0 18px;
+    }
+
+    .product-list li {
+      margin-bottom: 7px;
+      font-size: 15px;
+    }
+
+    .marketplace-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 20px 0 24px;
+    }
+
+    .marketplace-card {
+      display: block;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .marketplace-card img {
+      display: block;
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      background: #eef2f6;
+    }
+
+    .marketplace-card img.logo-preview {
+      object-fit: contain;
+      padding: 38px 28px;
+      background: #f7f9f5;
+    }
+
+    .marketplace-card-body {
+      padding: 13px 14px;
+    }
+
+    .marketplace-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .marketplace-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 18px 0 24px;
+    }
+
+    .demo-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .demo-card video {
+      display: block;
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      background: #101820;
+    }
+
+    .demo-card-body {
+      padding: 14px;
+    }
+
+    .demo-card-body strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 15px;
+    }
+
+    .demo-card-body span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .footer-note {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    a {
+      color: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    @media (max-width: 620px) {
+      .preview-shell {
+        padding: 0;
+      }
+
+      .email-frame {
+        border-left: 0;
+        border-right: 0;
+        box-shadow: none;
+      }
+
+      .masthead,
+      .content {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .brand-row,
+      .metric-band {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .warehouse-card img {
+        height: 220px;
+      }
+
+      .product-list {
+        columns: 1;
+      }
+
+      .marketplace-links {
+        grid-template-columns: 1fr;
+      }
+
+      .demo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="preview-shell">
+    <article class="email-frame" aria-label="Cronk investor letter preview">
+      <div class="preheader">Subject: Cronk Update #1: Warehouse Launches, Faster Shipping, and New Products Coming Soon</div>
+
+      <header class="masthead">
+        <div class="brand-row">
+          <img class="brand-logo" src="assets/cronk-logo-newsletter.jpg" alt="Cronk software logo">
+          <div class="issue">Investor Update #1</div>
+        </div>
+        <h1>Warehouse launches, faster shipping, and new products coming soon</h1>
+        <p class="dek">A short friends-and-family update on what we are building and where Cronk is headed next.</p>
+      </header>
+
+      <section class="content">
+        <p>Hi everyone,</p>
+
+        <p>I know a lot of you have been wondering what is happening with Cronk, so I thought I would start sending a short update every other week on what we are building, where things stand, and how you can help if something comes to mind.</p>
+
+        <p>If you know anyone who might be interested in our software, our fulfillment network, or joining the company in some capacity, please send them my way. We are still early, but things are moving quickly.</p>
+
+        <p>Right now, our biggest focus is getting our warehouse network fully operational. We are setting up both the Jacobus, Pennsylvania warehouse and the Tyler, Texas warehouse. Alongside our Meridian, Idaho operations, this three-warehouse network will allow us to reach:</p>
+
+        <div class="metric-band" aria-label="Shipping coverage metrics">
+          <div class="metric">
+            <span class="metric-value">98.1%</span>
+            <span class="metric-label">of the U.S. with two-day shipping</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">24.9%</span>
+            <span class="metric-label">of the U.S. with next-day shipping</span>
+          </div>
+        </div>
+
+        <p>That is a major advantage compared to most competitors in our category, who typically offer 3 to 5 business day shipping. We have already seen with our own listings that faster delivery is especially powerful in the gifting space, where timing often determines whether a customer buys or keeps looking.</p>
+
+        <p>This warehouse network also helps us save money on shipping costs by placing production closer to customers.</p>
+
+        <h2 class="section-label">Warehouse network</h2>
+
+        <div class="warehouse-grid">
+          <figure class="warehouse-card">
+            <img src="assets/jacobus.jpg" alt="Jacobus, Pennsylvania warehouse">
+            <figcaption class="warehouse-caption">
+              <strong>Jacobus, Pennsylvania</strong>
+              <span>East Coast production and fulfillment setup in progress. About 60% of products will flow through this warehouse.</span>
+            </figcaption>
+          </figure>
+
+          <figure class="warehouse-card">
+            <img src="assets/tyler.jpg" alt="Tyler, Texas warehouse">
+            <figcaption class="warehouse-caption">
+              <strong>Tyler, Texas</strong>
+              <span>Central/South fulfillment capacity being brought online. About 25% of products will flow through this warehouse.</span>
+            </figcaption>
+          </figure>
+
+          <figure class="warehouse-card">
+            <img src="assets/meridian.jpg" alt="Meridian, Idaho warehouse">
+            <figcaption class="warehouse-caption">
+              <strong>Meridian, Idaho</strong>
+              <span>Current operations are fulfilling demand with expedited shipping times. About 15% of products will flow through this warehouse.</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="callout">
+          <p>Both the Texas and Pennsylvania warehouses will be operational with UV printers and CO2 lasers by the end of next week. In the meantime, the Boise/Meridian warehouse is fulfilling all current demand with expedited shipping times.</p>
+        </div>
+
+        <p>We also have a number of new products arriving from China before the end of June, including:</p>
+
+        <ul class="product-list">
+          <li>Custom cutting boards</li>
+          <li>Custom nameplates in several varieties</li>
+          <li>Custom license plates</li>
+          <li>Custom coasters</li>
+          <li>Custom Spotify plaques</li>
+        </ul>
+
+        <p>These products will be listed across Amazon, Etsy, and our own Shopify store, <a href="https://mymaravia.com">MyMaravia.com</a>. We also had the MyMaravia trademark accepted, which lets us create branded content on our Amazon store.</p>
+
+        <h2 class="section-label">See it live</h2>
+
+        <div class="marketplace-links">
+          <a class="marketplace-card" href="https://mymaravia.com" target="_blank" rel="noopener">
+            <img class="logo-preview" src="assets/mymaravia-logo.png" alt="MyMaravia logo">
+            <div class="marketplace-card-body">
+              <strong>MyMaravia.com</strong>
+              <span>Our Shopify storefront for personalized gifts with fast shipping.</span>
+            </div>
+          </a>
+
+          <a class="marketplace-card" href="https://www.etsy.com/listing/4484395752/personalized-led-name-plate-sign-custom?ref=listings_manager_grid" target="_blank" rel="noopener">
+            <img src="assets/etsy-nameplate-thumbnail.jpg" alt="Personalized LED nameplate thumbnail">
+            <div class="marketplace-card-body">
+              <strong>Etsy nameplate listing</strong>
+              <span>Personalized LED nameplate with wood base on Etsy.</span>
+            </div>
+          </a>
+        </div>
+
+        <p>On the software side, Cronk allows orders to be ingested from all three platforms and automatically generate production-ready images based on SKU. As orders come in, the system knows what product was purchased, generates the correct customized artwork, and routes it toward fulfillment.</p>
+
+        <h2 class="section-label">Software demos</h2>
+
+        <p>Foundry and AI video generation are just two of the features we have been building. Cronk Foundry makes it easy to create AI and design previews for products that can be pushed into Shopify, and it will support our own products while also being sold to commercial clients.</p>
+
+        <div class="demo-grid">
+          <div class="demo-card">
+            <video controls muted playsinline preload="metadata">
+              <source src="assets/cronk-foundry-demo.mp4" type="video/mp4">
+            </video>
+            <div class="demo-card-body">
+              <strong>Foundry product previewing demo</strong>
+              <span>AI and design previews for custom products, built to move quickly into Shopify listings.</span>
+            </div>
+          </div>
+
+          <div class="demo-card">
+            <video controls muted playsinline preload="metadata">
+              <source src="assets/ai-generation-demo.mp4" type="video/mp4">
+            </video>
+            <div class="demo-card-body">
+              <strong>AI video generation demo</strong>
+              <span>Generated product media that can support listing content, ads, and branded storefront creative.</span>
+            </div>
+          </div>
+        </div>
+
+        <p>We have also finished automated inventory tracking, warehouse splitting, and nesting. Label generation is in the works, along with a listing generator that will let users create listings inside Cronk and automatically populate them to Amazon, Etsy, and Shopify while formatting each listing for the specific e-commerce platform.</p>
+
+        <p>That listing workflow will also support AI-generated product thumbnails and videos. We have already seen on our own products that these assets can be made faster, cheaper, and at higher quality than traditional designer-made thumbnails.</p>
+
+        <p>Cronk is already being used by companies like Homestead Science and Decor and QuickClips to fulfill their own products. We also have a 13-year profit-sharing agreement with QuickClips for 33% of their profits. QuickClips has recently been signing deals with more than 43 wholesaler locations and 153 Albertsons stores, and their growth is currently gated mainly by how quickly our factory in Mexico can produce the product.</p>
+
+        <p>The goal is simple: combine personalized product creation, automated order processing, and faster fulfillment into one system that gives us a meaningful edge in every custom category, not only on price but also on speed.</p>
+
+        <p>These categories can seem small individually, but they are extremely large. We saw this at Mayberry, where the custom street sign industry alone on Etsy is multiple millions of dollars a year. The nameplates market is much larger, and the customization industry as a whole is billions and billions of dollars a year.</p>
+
+        <p>We have yet to see a company with a similar software and soon-to-be manufacturing edge for speed and price. Our warehouse network gives us the physical footprint, and our software lets us leverage that network by assigning orders based on customer location, then generating those orders automatically to shorten processing times.</p>
+
+        <p>Thanks for following along. I will keep these updates short, but I wanted to start giving everyone a clearer picture of what we are building and where things are headed.</p>
+
+        <p>If you know someone who should see what we are working on, or if you are interested in helping Cronk in any capacity, just reply to this email.</p>
+
+        <p>Best,<br>Brandon</p>
+
+        <p class="footer-note">Cronk friends-and-family update. This draft is formatted for preview and can be adapted into your email platform.</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
