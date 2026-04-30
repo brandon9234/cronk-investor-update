@@ -582,6 +582,76 @@
       line-height: 1.35;
     }
 
+    .team-section {
+      margin: 24px 0 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .team-section h2 {
+      margin-bottom: 6px;
+    }
+
+    .team-intro {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .team-card {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      background: #fbfcfd;
+    }
+
+    .team-card img,
+    .team-photo-placeholder {
+      width: 82px;
+      height: 82px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 1px solid #d7e0ea;
+      background: #eef3f8;
+    }
+
+    .team-photo-placeholder {
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .team-card strong {
+      display: block;
+      color: #162332;
+      font-size: 15px;
+      line-height: 1.2;
+    }
+
+    .team-card span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12.5px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
     .footer-note {
       margin-top: 26px;
       padding-top: 18px;
@@ -644,8 +714,19 @@
       .account-list,
       .production-grid,
       .market-insight-grid,
+      .team-grid,
       .capital-band {
         grid-template-columns: 1fr;
+      }
+
+      .team-card {
+        grid-template-columns: 72px 1fr;
+      }
+
+      .team-card img,
+      .team-photo-placeholder {
+        width: 72px;
+        height: 72px;
       }
     }
   </style>
@@ -948,6 +1029,27 @@
         <p class="thesis-callout"><strong>This AI paradigm shift represents the largest possibility for wealth creation in our lifetimes.</strong></p>
 
         <p class="source-note">Sources: <a href="https://www.marketresearch.com/Market-Glass-Inc-v1039/Personalized-Gifts-42599069/">MarketResearch.com / Global Industry Analysts personalized gifts report</a>; <a href="https://www.arizton.com/market-reports/united-states-personalized-gifts-market">Arizton U.S. personalized gifts market report</a>; <a href="https://www.vistaprint.com/shipping">VistaPrint shipping and delivery information</a>; <a href="https://www.vistaprint.com/business-cards/fast-delivery">VistaPrint fast-delivery business cards</a>; <a href="https://www.groupon.com/coupons/blog/vistaprint-free-shipping-guide">Groupon Coupons VistaPrint shipping cost guide</a>; <a href="https://www.vistaprint.com/logomaker">VistaPrint AI Logomaker</a>; <a href="https://www.vistaprint.com/news/press-resources/logos">VistaPrint newsroom logo resources</a>; <a href="https://www.etsy.com/shop/HomesteadSignsDecor">HomesteadSignsDecor Etsy shop</a>; <a href="https://quickclipsfloral.com">QuickClips Floral</a>.</p>
+
+        <div class="team-section">
+          <h2 class="section-label">Meet the team</h2>
+          <p class="team-intro">Cronk is being built by a young, technical management team focused on moving quickly across software, operations, manufacturing, and e-commerce.</p>
+          <div class="team-grid">
+            <div class="team-card">
+              <img src="assets/brandon-jones-headshot.jpeg" alt="Brandon Jones">
+              <div>
+                <strong>Brandon Jones</strong>
+                <span>Founder, product, operations, and growth.</span>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-photo-placeholder">Photo coming</div>
+              <div>
+                <strong>Spencer Jorgensen</strong>
+                <span>Management team. Photo placeholder to be added.</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <p>Thanks for following along. I will keep these updates short, but I wanted to start giving everyone a clearer picture of what we are building and where things are headed.</p>
 
