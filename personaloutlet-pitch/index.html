@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ThePersonalOutlet x Cronk | 3PL + Software Trial Pitch</title>
+  <meta name="description" content="A Cronk pitch deck for ThePersonalOutlet, built from eRank sales data and Etsy review product mix.">
+  <style>
+    :root {
+      color-scheme: light;
+      --cream: #f8f1df;
+      --paper: #fffaf0;
+      --ink: #343946;
+      --muted: #6c7480;
+      --line: rgba(52, 57, 70, 0.16);
+      --red: #d93628;
+      --orange: #ef6c22;
+      --gold: #ffc51b;
+      --teal: #87c8b4;
+      --blue: #2f7f95;
+      --green: #174f3b;
+      --shadow: 0 22px 55px rgba(52, 57, 70, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .deck {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255, 197, 27, 0.16), rgba(248, 241, 223, 0) 36%),
+        var(--cream);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      overflow: auto;
+      padding: 34px 42px 96px;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .frame {
+      width: min(1180px, calc(100vw - 84px));
+      min-height: calc(100vh - 130px);
+      margin: 0 auto;
+      display: grid;
+      align-content: center;
+      gap: 22px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 8px;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cronk-logo {
+      width: min(230px, 36vw);
+      height: auto;
+      mix-blend-mode: multiply;
+    }
+
+    .outlet-logo {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #fff;
+      box-shadow: 0 10px 26px rgba(52, 57, 70, 0.13);
+    }
+
+    .partner-mark {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 22px;
+    }
+
+    .eyebrow {
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 980px;
+      font-size: clamp(44px, 7vw, 88px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 920px;
+      font-size: clamp(32px, 4.6vw, 56px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      font-size: 21px;
+      line-height: 1.18;
+    }
+
+    .lead {
+      max-width: 850px;
+      color: var(--muted);
+      font-size: clamp(19px, 2.1vw, 28px);
+      line-height: 1.32;
+    }
+
+    .stripe {
+      width: min(690px, 100%);
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--teal), var(--blue), var(--red), var(--gold), var(--orange));
+    }
+
+    .cols {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .cols.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .panel {
+      background: rgba(255, 250, 240, 0.94);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .panel.dark {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .panel.dark .muted,
+    .panel.dark .kicker {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .panel.dark .check,
+    .panel.dark .check b {
+      color: #fff;
+    }
+
+    .kicker {
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .metric {
+      font-size: clamp(34px, 5vw, 64px);
+      font-weight: 900;
+      line-height: 0.95;
+    }
+
+    .metric.small {
+      font-size: clamp(27px, 3.6vw, 46px);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .body {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.42;
+    }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .chart-img {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .bars {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 220px 1fr 82px;
+      gap: 12px;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .track {
+      height: 12px;
+      background: rgba(52, 57, 70, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--teal);
+    }
+
+    .fill.red { background: var(--red); }
+    .fill.blue { background: var(--blue); }
+    .fill.orange { background: var(--orange); }
+    .fill.gold { background: var(--gold); }
+    .fill.green { background: var(--green); }
+
+    .fit-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .fit-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.52);
+      font-weight: 800;
+    }
+
+    .fit-item span:last-child {
+      color: var(--blue);
+      white-space: nowrap;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .step {
+      min-height: 190px;
+      padding: 18px;
+      border-radius: 8px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      display: grid;
+      align-content: start;
+      gap: 12px;
+    }
+
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--red);
+      font-weight: 900;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    video,
+    .media-img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #111827;
+      box-shadow: var(--shadow);
+    }
+
+    .media-img {
+      object-fit: contain;
+      background: var(--paper);
+    }
+
+    .warehouse-map {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .warehouse {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .warehouse img {
+      display: block;
+      width: 100%;
+      height: 178px;
+      object-fit: cover;
+    }
+
+    .warehouse div {
+      padding: 16px;
+    }
+
+    .math {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .math-line {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .math-line strong {
+      font-size: 24px;
+    }
+
+    .offer {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .check {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 10px;
+      align-items: start;
+      font-size: 17px;
+      color: var(--muted);
+    }
+
+    .check b {
+      color: var(--ink);
+    }
+
+    .check::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: inset 0 0 0 5px var(--paper);
+      border: 2px solid var(--green);
+    }
+
+    .appendix {
+      max-height: 58vh;
+      overflow: auto;
+      border-top: 1px solid var(--line);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      background: var(--paper);
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      z-index: 10;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 250, 240, 0.92);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav button {
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .counter {
+      min-width: 58px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .progress {
+      position: fixed;
+      inset: auto 0 0 0;
+      z-index: 12;
+      height: 5px;
+      background: rgba(52, 57, 70, 0.12);
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--teal), var(--red), var(--gold), var(--orange));
+      transition: width 180ms ease;
+    }
+
+    @media (max-width: 920px) {
+      body {
+        overflow: auto;
+      }
+
+      .deck {
+        height: auto;
+        min-height: 100vh;
+      }
+
+      .slide {
+        position: relative;
+        min-height: 100vh;
+        padding: 24px 14px 86px;
+      }
+
+      .frame {
+        width: 100%;
+        min-height: auto;
+      }
+
+      .cols,
+      .cols.three,
+      .chart-grid,
+      .media-grid,
+      .warehouse-map,
+      .math,
+      .offer,
+      .fit-list,
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      video,
+      .media-img {
+        height: auto;
+      }
+    }
+
+    @media print {
+      body {
+        overflow: visible;
+        background: #fff;
+      }
+
+      .deck {
+        height: auto;
+        background: #fff;
+      }
+
+      .slide {
+        position: relative;
+        display: block !important;
+        page-break-after: always;
+        min-height: 100vh;
+      }
+
+      .nav,
+      .progress {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck" aria-live="polite">
+    <section class="slide active">
+      <div class="frame">
+        <div class="topbar">
+          <div class="logo-row">
+            <img class="outlet-logo" src="../assets/thepersonaloutlet-logo.png" alt="ThePersonalOutlet logo">
+            <span class="partner-mark">x</span>
+            <img class="cronk-logo" src="../assets/cronk-logo-newsletter.jpg" alt="Cronk software logo">
+          </div>
+          <div class="eyebrow">Private partner demo</div>
+        </div>
+        <h1>Turn custom orders into a faster, cheaper fulfillment engine.</h1>
+        <p class="lead">A trial proposal for ThePersonalOutlet: Cronk software plus regional 3PL fulfillment for semi-custom signs, doormats, poker chips, and personalized gifts.</p>
+        <div class="stripe"></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="frame">
+        <div>
+          <div class="eyebrow">The simple thesis</div>
+          <h2>You already have demand. Cronk can remove the operational drag around customization.</h2>
+        </div>
+        <div class="cols three">
+          <div class="panel">
+            <div class="kicker">Signal</div>
+            <div class="metric">67.7k</div>
+            <p class="body">Total eRank sales observed for ThePersonalOutlet on May 10, 2026.</p>
+          </div>
+          <div class="panel">
+            <div class="kicker">Recent velocity</div>
+            <div class="metric">2,257</div>
+            <p class="body">April 2026 sales from the eRank sales history chart.</p>
+          </div>
+          <div class="panel dark">
+            <div class="kicker">Trial target</div>
+            <div class="metric">6</div>
+            <p class="body muted">Immediate-fit product families for software plus fulfillment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="frame">
+        <div>
+          <div class="eyebrow">What the data says</div>
+          <h2>The reviewed-product mix points straight at Cronk-compatible categories.</h2>
+          <p class="lead">We sampled the latest 10 Etsy review pages: 140 reviews dated Apr 24 through May 10, 2026. Then we mapped review share onto April sales.</p>
+        </div>
+        <div class="chart-grid">
+          <img class="chart-img" src="../assets/personaloutlet-pitch/thepersonaloutlet-sales-cronk.png" alt="Cronk-styled ThePersonalOutlet sales charts">
+          <div class="panel">
+            <div class="kicker">Estimated April units by review mix</div>
+            <div class="bars">
+              <div class="bar-row"><span>Front door signs / hangers</span><div class="track"><div class="fill" style="width: 100%"></div></div><span>339</span></div>
+              <div class="bar-row"><span>Scripture signs / decor</span><div class="track"><div class="fill red" style="width: 95%"></div></div><span>322</span></div>
+              <div class="bar-row"><span>Home / family signs</span><div class="track"><div class="fill blue" style="width: 76%"></div></div><span>258</span></div>
+              <div class="bar-row"><span>Quote wood signs</span><div class="track"><div class="fill orange" style="width: 71%"></div></div><span>242</span></div>
+              <div class="bar-row"><span>Doormats / rugs</span><div class="track"><div class="fill gold" style="width: 52%"></div></div><span>177</span></div>
+              <div class="bar-row"><span>Poker chips</span><div class="track"><div class="fill green" style="width: 24%"></div></div><span>81</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="frame">
+        <div>
+          <div class="eyebrow">Immediate fit</div>
+          <h2>Roughly 1,419 April orders look like direct Cronk trial candidates.</h2>
+        </div>
+        <div class="cols">
+          <div class="panel dark">
+            <div class="kicker">Direct-fit volume</div>
+            <div class="metric">62.9%</div>
+            <p class="body muted">of estimated April sales from the categories you called out: doormats/rugs, quote wood signs, family signs, scripture signs, front door signs, and poker chips.</p>
+          </div>
+          <div class="panel">
+            <div class="fit-list">
+              <div class="fit-item"><span>Front door signs</span><span>339/mo</span></div>
+              <div class="fit-item"><span>Scripture signs</span><span>322/mo</span></div>
+              <div class="fit-item"><span>Family signs</span><span>258/mo</span></div>
+              <div class="fit-item"><span>Quote signs</span><span>242/mo</span></div>
+              <div class="fit-item"><span>Doormats / rugs</span><span>177/mo</span></div>
+              <div class="fit-item"><span>Poker chips</span><span>81/mo</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="body">The pitch is not "move everything." It is "start where the order flow is repetitive, semi-custom, and already proven."</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="frame">
+        <div>
+          <div class="eyebrow">Current hidden cost</div>
+          <h2>Semi-custom products quietly tax every successful Etsy shop.</h2>
+        </div>
+        <div class="cols three">
+          <div class="panel">
+            <h3>Design touches</h3>
+            <p class="body">Customer names, dates, verses, addresses, photos, and layout changes turn orders into manual production decisions.</p>
+          </div>
+          <div class="panel">
+            <h3>Fulfillment variance</h3>
+            <p class="body">Longer ship promises reduce conversion, especially in gifting, wedding, holiday, and event-driven categories.</p>
+          </div>
+          <div class="panel">
+            <h3>SKU sprawl</h3>
+            <p class="body">Each new semi-custom idea needs listing assets, preview logic, production files, routing, and repeatable QA.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <p class="lead">Cronk turns those repeated decisions into product recipes: customer input in, production-ready file out, routed to the closest capable warehouse.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="frame">
+        <div>
+          <div class="eyebrow">How Cronk works</div>
+          <h2>One order flow from Etsy customization to production-ready fulfillment.</h2>
+        </div>
+        <div class="workflow">
+          <div class="step"><div class="step-num">1</div><h3>Ingest</h3><p class="body">Pull orders and personalization fields from Etsy, Shopify, Amazon, or CSV.</p></div>
+          <div class="step"><div class="step-num">2</div><h3>Generate</h3><p class="body">Apply customer text, dates, names, photos, and design choices to a locked product recipe.</p></div>
+          <div class="step"><div class="step-num">3</div><h3>Preview</h3><p class="body">Create deterministic previews and AI-assisted listing media where useful.</p></div>
+          <div class="step"><div class="step-num">4</div><h3>Route</h3><p class="body">Send the order to the closest warehouse with the right printer, laser, or substrate.</p></div>
+          <div class="step"><div class="step-num">5</div><h3>Fulfill</h3><p class="body">Print, pack, label, ship, and return tracking back to the commerce platform.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="frame">
+        <div>
+          <div class="eyebrow">Software demo story</div>
+          <h2>Show them customization without making them imagine the backend.</h2>
+        </div>
+        <div class="media-grid">
+          <div>
+            <video src="../assets/cronk-foundry-demo.mp4" controls muted playsinline></video>
+            <p class="body">Foundry turns product setup into reusable previews and listing-ready assets.</p>
+          </div>
+          <div>
+            <img class="media-img" src="../assets/personaloutlet-pitch/05-cronk-listing-creation-engine-workflow.png" alt="Cronk listing creation workflow">
+            <p class="body">The same recipe can power listings, order art, production files, and fulfillment routing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="frame">
+        <div>
+          <div class="eyebrow">3PL advantage</div>
+          <h2>Regional fulfillment gives ThePersonalOutlet a speed promise most custom shops cannot match.</h2>
+        </div>
+        <div class="warehouse-map">
+          <div class="warehouse"><img src="../assets/jacobus.jpg" alt="Jacobus Pennsylvania warehouse"><div><h3>Jacobus, PA</h3><p class="body">East Coast production and fulfillment. Planned for roughly 60% of product flow.</p></div></div>
+          <div class="warehouse"><img src="../assets/tyler.jpg" alt="Tyler Texas warehouse"><div><h3>Tyler, TX</h3><p class="body">Central and South fulfillment capacity. Planned for roughly 25% of product flow.</p></div></div>
+          <div class="warehouse"><img src="../assets/meridian.jpg" alt="Meridian Idaho warehouse"><div><h3>Meridian, ID</h3><p class="body">Current operations and western coverage. Planned for roughly 15% of product flow.</p></div></div>
+        </div>
+        <div class="cols">
+          <div class="panel"><div class="metric small">98.1%</div><p class="body">of the U.S. reachable with two-day shipping from the network.</p></div>
+          <div class="panel"><div class="metric small">24.9%</div><p class="body">of the U.S. reachable with next-day shipping.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="frame">
+        <div>
+          <div class="eyebrow">Savings model</div>
+          <h2>A conservative trial model can show thousands per month in visible value.</h2>
+          <p class="lead">These are pitch assumptions, not guarantees. The point of the pilot is to replace estimates with their own order data.</p>
+        </div>
+        <div class="math">
+          <div class="panel">
+            <div class="kicker">Base case: 1,419 direct-fit April units</div>
+            <div class="math-line"><span>9 minutes saved per order</span><strong>213 hrs/mo</strong></div>
+            <div class="math-line"><span>Labor value at $18/hr</span><strong>$3.8k/mo</strong></div>
+            <div class="math-line"><span>$1.25 shipping/handling improvement</span><strong>$1.8k/mo</strong></div>
+            <div class="math-line"><span>Reduced design/reprint friction</span><strong>$0.3k/mo</strong></div>
+            <div class="math-line"><span>Total modeled value</span><strong>$5.9k/mo</strong></div>
+          </div>
+          <div class="panel dark">
+            <div class="kicker">What changes operationally</div>
+            <div class="checklist">
+              <div class="check"><span><b>Less manual art</b><br>Recipes generate production files from customer inputs.</span></div>
+              <div class="check"><span><b>Faster ship promise</b><br>Orders route to the closest capable warehouse.</span></div>
+              <div class="check"><span><b>More listings</b><br>Listing generator and AI assets reduce launch friction.</span></div>
+              <div class="check"><span><b>Cleaner scaling</b><br>They can test new products without rebuilding ops every time.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="frame">
+        <div>
+          <div class="eyebrow">Suggested pilot</div>
+          <h2>Make the ask small, measurable, and hard to say no to.</h2>
+        </div>
+        <div class="offer">
+          <div class="panel dark">
+            <div class="kicker">Trial offer</div>
+            <div class="metric">45 days</div>
+            <p class="body muted">25 SKUs, 6 product families, no full catalog migration required.</p>
+          </div>
+          <div class="panel">
+            <h3>Pilot scope</h3>
+            <div class="checklist">
+              <div class="check"><span><b>Front door signs and scripture signs</b><br>High-volume, semi-custom text and layout products.</span></div>
+              <div class="check"><span><b>Quote, family, and home signs</b><br>Repeatable templates with names, dates, verses, and locations.</span></div>
+              <div class="check"><span><b>Doormats/rugs and poker chips</b><br>Production-ready test categories for UV/laser routing.</span></div>
+              <div class="check"><span><b>Weekly dashboard review</b><br>Compare cost, ship time, touch rate, reprint rate, and customer issues.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="frame">
+        <div>
+          <div class="eyebrow">Close</div>
+          <h2>The pitch: keep your Etsy demand engine, let Cronk become the custom fulfillment engine behind it.</h2>
+        </div>
+        <div class="cols">
+          <div class="panel">
+            <h3>What they get</h3>
+            <div class="checklist">
+              <div class="check"><span>Lower fulfillment friction on proven products.</span></div>
+              <div class="check"><span>Better ship speed without building a three-warehouse network themselves.</span></div>
+              <div class="check"><span>Software that turns customization into repeatable production.</span></div>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>What Cronk gets</h3>
+            <div class="checklist">
+              <div class="check"><span>A high-volume custom shop to validate the 3PL plus software motion.</span></div>
+              <div class="check"><span>SKU recipes that generalize across the personalized gifts market.</span></div>
+              <div class="check"><span>A case study with measurable savings, speed, and throughput impact.</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="lead">Recommended ask: "Give us 25 listings for 45 days. If we cannot improve speed, reduce touches, and show a cleaner unit-cost path, you can walk away with the data."</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="frame">
+        <div>
+          <div class="eyebrow">Appendix</div>
+          <h2>Reviewed listings with the strongest sample signals.</h2>
+          <p class="lead">These links came from the same 10-page review sample. Counts are reviews in sample, not total product sales.</p>
+        </div>
+        <div class="panel appendix">
+          <table>
+            <thead>
+              <tr><th>Reviews</th><th>Bucket</th><th>Listing</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>13</td><td>Bachelorette blow-up dolls / face floats</td><td><a href="https://www.etsy.com/listing/1743564035/bachelorette-blow-up-doll-party-favor">Bachelorette Blow Up Doll Party Favor</a></td></tr>
+              <tr><td>9</td><td>Christian / scripture signs</td><td><a href="https://www.etsy.com/listing/1743818338/personalized-bible-verse-sign-custom">Personalized Bible Verse Sign</a></td></tr>
+              <tr><td>7</td><td>Custom quote wood signs</td><td><a href="https://www.etsy.com/listing/1754309139/custom-quote-sign-for-home-personalized">Custom Quote Sign For Home</a></td></tr>
+              <tr><td>6</td><td>Grandma / grandparents gifts</td><td><a href="https://www.etsy.com/listing/1689302132/theres-no-place-like-grandma-grandpas">Grandma & Grandpa's House Sign</a></td></tr>
+              <tr><td>6</td><td>Wedding guest book signs</td><td><a href="https://www.etsy.com/listing/4341776590/wedding-guest-book-unique-wood-guestbook">Wedding Guest Book Sign</a></td></tr>
+              <tr><td>5</td><td>Custom poker chips</td><td><a href="https://www.etsy.com/listing/1781482751/custom-poker-chip-custom-printed-poker">Custom Poker Chip</a></td></tr>
+              <tr><td>5</td><td>Front door signs / hangers</td><td><a href="https://www.etsy.com/listing/4340792142/front-door-decor-front-door-hanger">Front Door Decor / Door Hanger</a></td></tr>
+              <tr><td>4</td><td>Personalized home / family signs</td><td><a href="https://www.etsy.com/listing/1736179532/personalized-last-name-sign-with-names">Personalized Last Name Sign</a></td></tr>
+              <tr><td>3</td><td>Custom ping pong / beer pong balls</td><td><a href="https://www.etsy.com/listing/1690843459/custom-ping-pong-balls-custom-beer-pong">Custom Ping Pong Balls</a></td></tr>
+              <tr><td>3</td><td>Doormats / rugs</td><td><a href="https://www.etsy.com/listing/1473448631/bass-fish-split-monogram-doormat-fishing">Bass Fish Split Monogram Doormat</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="nav" aria-label="Slide controls">
+    <button type="button" id="prev" aria-label="Previous slide">&larr;</button>
+    <div class="counter" id="counter">1 / 12</div>
+    <button type="button" id="next" aria-label="Next slide">&rarr;</button>
+  </nav>
+  <div class="progress" aria-hidden="true"><span id="progress"></span></div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const counter = document.getElementById('counter');
+    const progress = document.getElementById('progress');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    function indexFromHash() {
+      return Math.min(Math.max(Number(location.hash.replace('#', '')) - 1 || 0, 0), slides.length - 1);
+    }
+
+    let index = indexFromHash();
+
+    function show(nextIndex) {
+      index = Math.min(Math.max(nextIndex, 0), slides.length - 1);
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      counter.textContent = `${index + 1} / ${slides.length}`;
+      progress.style.width = `${((index + 1) / slides.length) * 100}%`;
+      history.replaceState(null, '', `#${index + 1}`);
+    }
+
+    prev.addEventListener('click', () => show(index - 1));
+    next.addEventListener('click', () => show(index + 1));
+    window.addEventListener('hashchange', () => show(indexFromHash()));
+    window.addEventListener('keydown', (event) => {
+      if (['ArrowRight', 'PageDown', ' '].includes(event.key)) {
+        event.preventDefault();
+        show(index + 1);
+      }
+      if (['ArrowLeft', 'PageUp', 'Backspace'].includes(event.key)) {
+        event.preventDefault();
+        show(index - 1);
+      }
+      if (event.key === 'Home') show(0);
+      if (event.key === 'End') show(slides.length - 1);
+    });
+    show(index);
+  </script>
+</body>
+</html>
